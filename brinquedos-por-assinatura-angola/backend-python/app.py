@@ -288,24 +288,106 @@ if __name__ == '__main__':
             for plano in planos:
                 db.session.add(plano)
             
-            # Add toys
+            # Add toys with absolute image URLs and more toys
             brinquedos = [
-                Brinquedo(nome="Boneca Interativa", categoria="Bonecas", idade_recomendada="3-6 anos", 
-                         descricao="Boneca que fala e canta músicas em português", imagem_url="/brinquedos/boneca.jpg"),
-                Brinquedo(nome="Carro de Controle Remoto", categoria="Veículos", idade_recomendada="5-10 anos", 
-                         descricao="Carro 4x4 de controle remoto todo-terreno", imagem_url="/brinquedos/carro.jpg"),
-                Brinquedo(nome="Blocos de Construção", categoria="Educativo", idade_recomendada="2-7 anos", 
-                         descricao="Conjunto de 100 blocos coloridos para construir", imagem_url="/brinquedos/blocos.jpg"),
-                Brinquedo(nome="Jogo de Tabuleiro Família", categoria="Jogos", idade_recomendada="6+ anos", 
-                         descricao="Jogo divertido para toda a família", imagem_url="/brinquedos/tabuleiro.jpg"),
-                Brinquedo(nome="Kit de Ciências", categoria="Educativo", idade_recomendada="8-12 anos", 
-                         descricao="Kit para realizar 20 experiências científicas", imagem_url="/brinquedos/ciencias.jpg"),
-                Brinquedo(nome="Quebra-Cabeça 100 peças", categoria="Puzzles", idade_recomendada="5-10 anos", 
-                         descricao="Quebra-cabeça com tema de animais de Angola", imagem_url="/brinquedos/quebracabeca.jpg"),
-                Brinquedo(nome="Bola de Futebol", categoria="Esportes", idade_recomendada="4+ anos", 
-                         descricao="Bola de futebol oficial tamanho 4", imagem_url="/brinquedos/bola.jpg"),
-                Brinquedo(nome="Instrumento Musical", categoria="Música", idade_recomendada="3-8 anos", 
-                         descricao="Kit com diversos instrumentos musicais infantis", imagem_url="/brinquedos/musica.jpg")
+                Brinquedo(
+                    nome="Boneca Interativa",
+                    categoria="Bonecas",
+                    idade_recomendada="3-6 anos",
+                    descricao="Boneca que fala e canta músicas em português",
+                    imagem_url="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Carro de Controle Remoto",
+                    categoria="Veículos",
+                    idade_recomendada="5-10 anos",
+                    descricao="Carro 4x4 de controle remoto todo-terreno",
+                    imagem_url="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Blocos de Construção",
+                    categoria="Educativo",
+                    idade_recomendada="2-7 anos",
+                    descricao="Conjunto de 100 blocos coloridos para construir",
+                    imagem_url="https://images.unsplash.com/photo-1511453673005-6b8cfc5e8a19?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Jogo de Tabuleiro Família",
+                    categoria="Jogos",
+                    idade_recomendada="6+ anos",
+                    descricao="Jogo divertido para toda a família",
+                    imagem_url="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Kit de Ciências",
+                    categoria="Educativo",
+                    idade_recomendada="8-12 anos",
+                    descricao="Kit para realizar 20 experiências científicas",
+                    imagem_url="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Quebra-Cabeça 100 peças",
+                    categoria="Puzzles",
+                    idade_recomendada="5-10 anos",
+                    descricao="Quebra-cabeça com tema de animais de Angola",
+                    imagem_url="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Bola de Futebol",
+                    categoria="Esportes",
+                    idade_recomendada="4+ anos",
+                    descricao="Bola de futebol oficial tamanho 4",
+                    imagem_url="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Instrumento Musical",
+                    categoria="Música",
+                    idade_recomendada="3-8 anos",
+                    descricao="Kit com diversos instrumentos musicais infantis",
+                    imagem_url="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Trenzinho de Madeira",
+                    categoria="Veículos",
+                    idade_recomendada="2-6 anos",
+                    descricao="Trenzinho de madeira colorido para montar e brincar",
+                    imagem_url="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Ursinho de Pelúcia",
+                    categoria="Pelúcias",
+                    idade_recomendada="1-5 anos",
+                    descricao="Ursinho de pelúcia macio e fofinho",
+                    imagem_url="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Lego Classic",
+                    categoria="Educativo",
+                    idade_recomendada="5-12 anos",
+                    descricao="Caixa de peças Lego para criatividade sem limites",
+                    imagem_url="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Patins Infantil",
+                    categoria="Esportes",
+                    idade_recomendada="6-12 anos",
+                    descricao="Patins ajustáveis para crianças iniciantes",
+                    imagem_url="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Cozinha de Brinquedo",
+                    categoria="Faz de Conta",
+                    idade_recomendada="3-8 anos",
+                    descricao="Cozinha completa para brincar de chef",
+                    imagem_url="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                ),
+                Brinquedo(
+                    nome="Super Herói de Ação",
+                    categoria="Ação",
+                    idade_recomendada="4-10 anos",
+                    descricao="Boneco articulado de super herói famoso",
+                    imagem_url="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                ),
             ]
             
             for brinquedo in brinquedos:
