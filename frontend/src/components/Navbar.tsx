@@ -60,7 +60,7 @@ export const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link to="/" legacyBehavior passHref>
+                <Link to="/">
                   <NavigationMenuLink
                     className={cn(navigationMenuTriggerStyle(), {
                       "bg-accent text-accent-foreground": isActive("/"),
@@ -72,7 +72,7 @@ export const Navbar = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/checkout" legacyBehavior passHref>
+                <Link to="/checkout">
                   <NavigationMenuLink
                     className={cn(navigationMenuTriggerStyle(), {
                       "bg-accent text-accent-foreground": isActive("/checkout"),
@@ -84,7 +84,7 @@ export const Navbar = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/profile" legacyBehavior passHref>
+                <Link to="/profile">
                   <NavigationMenuLink
                     className={cn(navigationMenuTriggerStyle(), {
                       "bg-accent text-accent-foreground": isActive("/profile"),
@@ -98,9 +98,14 @@ export const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Button className="bg-brand-purple hover:bg-brand-purple/90" asChild>
-            <Link to="/checkout">Assinar</Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" asChild>
+              <Link to="/login">Entrar</Link>
+            </Button>
+            <Button className="bg-brand-purple hover:bg-brand-purple/90" asChild>
+              <Link to="/checkout">Assinar</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -160,6 +165,12 @@ export const Navbar = () => {
                   )}
                 >
                   Minha Conta
+                </Link>
+                <Link
+                  to="/login"
+                  className="px-4 py-2 rounded-md font-medium hover:bg-accent hover:text-accent-foreground"
+                >
+                  Entrar
                 </Link>
                 <Button className="mt-4 w-full bg-brand-purple hover:bg-brand-purple/90" asChild>
                   <Link to="/checkout">Assinar</Link>
