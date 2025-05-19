@@ -99,8 +99,8 @@ const Landing = () => {
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent rounded-full opacity-50"></div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full opacity-40"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1560859251-b3ef93ff5a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
-                  alt="Crianças brincando" 
+                  src="https://images.pexels.com/photos/4546116/pexels-photo-4546116.jpeg?auto=compress&w=600&q=80" 
+                  alt="Crianças negras brincando" 
                   className="rounded-2xl shadow-lg w-full animate-float"
                 />
               </div>
