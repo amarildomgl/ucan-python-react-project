@@ -205,7 +205,7 @@ const Landing = () => {
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-semibold">Margarida Silva</h4>
+                  <h4 className="font-semibold">Poca Py</h4>
                   <p className="text-sm text-gray-500">Mãe de 2 filhos</p>
                 </div>
               </div>
@@ -218,7 +218,7 @@ const Landing = () => {
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-semibold">João Domingos</h4>
+                  <h4 className="font-semibold">Nerú Americano</h4>
                   <p className="text-sm text-gray-500">Pai de uma menina</p>
                 </div>
               </div>
@@ -231,7 +231,7 @@ const Landing = () => {
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                 <div>
-                  <h4 className="font-semibold">Ana Marta</h4>
+                  <h4 className="font-semibold">Jéssica Pitbull</h4>
                   <p className="text-sm text-gray-500">Mãe de 3 filhos</p>
                 </div>
               </div>

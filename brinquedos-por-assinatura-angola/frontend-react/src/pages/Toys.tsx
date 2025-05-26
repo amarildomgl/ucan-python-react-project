@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,55 +5,57 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Toy, toyService } from "@/services/toy-service";
+import publicImageService from "@/services/public-image-service";
 
 const categories = [
   "Todos",
-  "Educativo",
-  "Criatividade",
-  "Ciência",
-  "Jogos",
   "Bonecas",
-  "Tecnologia",
-  "Veículos",
-  "Esportes",
-  "Música",
-  "Puzzles"
+  "Carrinhos",
+  "Blocos de Montar",
+  "Pelúcias",
+  "Quebra-Cabeças",
+  "Brinquedos de Faz de Conta",
+  "Eletrônicos Educativos",
+  "Educativos",
+  "Clássicos",
+  "Esportes"
 ];
+
 
 const ageRanges = [
   "Todos",
   "0-2 anos",
   "3-5 anos",
   "6-8 anos",
-  "9-12 anos",
+  "9-12 anos"
 ];
+
 
 const Toys = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selectedAgeRange, setSelectedAgeRange] = useState("Todos");
-  
+
   const { data: toys = [], isLoading } = useQuery({
     queryKey: ['toys'],
     queryFn: () => toyService.getToys(),
   });
-  
-  // Filter toys based on search, category, and age range
+
   const filteredToys = toys.filter(toy => {
-    const matchesSearch = toy.nome.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         toy.descricao.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = toy.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      toy.descricao.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "Todos" || toy.categoria === selectedCategory;
     const matchesAgeRange = selectedAgeRange === "Todos" || toy.idade_recomendada.includes(selectedAgeRange);
-    
+
     return matchesSearch && matchesCategory && matchesAgeRange;
   });
-  
+
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold mb-8">Nossos Brinquedos</h1>
-        
+
         {/* Filters */}
         <div className="bg-white p-6 rounded-xl shadow-sm mb-8">
           <div className="flex flex-col md:flex-row gap-4">
@@ -67,7 +68,7 @@ const Toys = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
+
             <div className="flex gap-4">
               <select
                 className="bg-white border rounded-md px-3 py-2"
@@ -80,7 +81,7 @@ const Toys = () => {
                   </option>
                 ))}
               </select>
-              
+
               <select
                 className="bg-white border rounded-md px-3 py-2"
                 value={selectedAgeRange}
@@ -95,8 +96,8 @@ const Toys = () => {
             </div>
           </div>
         </div>
-        
-        {/* Toys Grid */}
+
+
         {isLoading ? (
           <div className="text-center py-12">
             <p className="text-xl text-gray-500">Carregando brinquedos...</p>
@@ -106,9 +107,13 @@ const Toys = () => {
             {filteredToys.map(toy => (
               <div key={toy.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
                 <div className="h-48 overflow-hidden">
-                  <img 
-                    src={toy.imagem_url || `https://images.unsplash.com/photo-1560421741-50d9c0b6c42c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80`} 
-                    alt={toy.nome} 
+                  <img
+                    src={
+                      toy.imagem_url
+                        ? publicImageService.getImageUrl(toy.imagem_url)
+                        : `/img/menina-com-papel-pintado-no-tapete-de-jogo-no-estudio.jpg`
+                    }
+                    alt={toy.nome}
                     className="w-full h-full object-cover transition-transform hover:scale-105"
                   />
                 </div>
@@ -125,8 +130,8 @@ const Toys = () => {
                     </span>
                   </div>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{toy.descricao}</p>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="mt-auto w-full"
                     onClick={() => navigate(`/brinquedos/${toy.id}`)}
                   >

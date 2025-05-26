@@ -64,13 +64,13 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-gray-800">Contacto</h3>
             <ul className="space-y-2">
               <li className="text-gray-600">
-                <span className="block">Email: info@brincaja.co.ao</span>
+                <span className="block">Email: amarildomgl@gmail.com</span>
               </li>
               <li className="text-gray-600">
-                <span className="block">Telefone: +244 923 456 789</span>
+                <span className="block">Telefone: +244 947 444 014</span>
               </li>
               <li className="text-gray-600">
-                <span className="block">Av. Comandante Valódia, Luanda</span>
+                <span className="block">Nelito Soares, Luanda</span>
               </li>
             </ul>
           </div>

@@ -17,3 +17,17 @@ def obter_brinquedos():
             'imagem_url': brinquedo.imagem_url
         })
     return jsonify(resultado), 200
+
+
+@bp.route('/brinquedos/<int:id>', methods=['GET'])
+def obter_brinquedo_por_id(id):
+    brinquedo = Brinquedo.query.get_or_404(id)
+    resultado = {
+        'id': brinquedo.id,
+        'nome': brinquedo.nome,
+        'categoria': brinquedo.categoria,
+        'idade_recomendada': brinquedo.idade_recomendada,
+        'descricao': brinquedo.descricao,
+        'imagem_url': brinquedo.imagem_url
+    }
+    return jsonify(resultado), 200

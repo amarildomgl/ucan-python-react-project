@@ -281,7 +281,7 @@ const Profile = () => {
               <CardHeader>
                 <CardTitle>Minha Subscrição</CardTitle>
                 <CardDescription>
-                  Gerencie sua subscrição atual.
+                  Gerencie sua subscrição actual.
                 </CardDescription>
               </CardHeader>
               <CardContent>

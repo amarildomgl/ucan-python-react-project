@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -10,12 +9,13 @@ import { Info, ArrowLeft } from "lucide-react";
 import { toyService } from "@/services";
 import { Toy } from "@/services/toy-service";
 import { useToast } from "@/hooks/use-toast";
+import publicImageService from "@/services/public-image-service";
 
 const ToyDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
-  
+
   const { data: toy, isLoading, error } = useQuery({
     queryKey: ['toy', id],
     queryFn: () => toyService.getToyById(Number(id)),
@@ -26,8 +26,8 @@ const ToyDetails = () => {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container mx-auto px-4">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             onClick={() => navigate('/brinquedos')}
             className="mb-6"
           >
@@ -70,8 +70,8 @@ const ToyDetails = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4">
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           onClick={() => navigate('/brinquedos')}
           className="mb-6"
         >
@@ -83,16 +83,16 @@ const ToyDetails = () => {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="w-full md:w-1/2">
               <div className="rounded-lg overflow-hidden border bg-white">
-                <img 
-                  src={toy.imagem_url || "https://images.unsplash.com/photo-1560421741-50d9c0b6c42c"} 
-                  alt={toy.nome} 
+                <img
+                  src={toy.imagem_url ? publicImageService.getImageUrl(toy.imagem_url) : "https://images.unsplash.com/photo-1560421741-50d9c0b6c42c"}
+                  alt={toy.nome}
                   className="w-full h-[400px] object-cover"
                 />
               </div>
             </div>
             <div className="w-full md:w-1/2">
               <h1 className="text-3xl font-bold mb-2">{toy.nome}</h1>
-              
+
               <div className="flex gap-2 mb-6">
                 <Badge variant="outline" className="bg-primary/10 text-primary">
                   {toy.categoria}
@@ -101,7 +101,7 @@ const ToyDetails = () => {
                   {toy.idade_recomendada}
                 </Badge>
               </div>
-              
+
               <Card className="mb-6">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg flex items-center">
@@ -113,8 +113,8 @@ const ToyDetails = () => {
                   <p className="text-gray-700">{toy.descricao}</p>
                 </CardContent>
               </Card>
-              
-              <Button 
+
+              <Button
                 onClick={() => {
                   toast({
                     title: "Brinquedo adicionado à lista de desejos",

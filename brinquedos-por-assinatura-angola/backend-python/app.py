@@ -6,6 +6,8 @@ from extensions import db, cors
 from routes.auth_routes import bp as auth_bp
 from routes.plano_routes import bp as plano_bp
 from routes.brinquedo_routes import bp as brinquedo_bp
+from routes.perfil_routes import bp as perfil_bp
+from routes.checkout_routes import bp as checkout_bp
 from database.seed import seed
 
 app = Flask(__name__)
@@ -18,6 +20,8 @@ cors.init_app(app, resources={r"/*": {"origins": "*"}})
 app.register_blueprint(auth_bp)
 app.register_blueprint(plano_bp)
 app.register_blueprint(brinquedo_bp)
+app.register_blueprint(perfil_bp)
+app.register_blueprint(checkout_bp)
 
 # Servir arquivos estáticos da pasta public
 @app.route('/public/<path:filename>')
