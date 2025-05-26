@@ -22,7 +22,13 @@ def obter_perfil():
     usuario = Usuario.query.filter_by(id=usuario_id).first()
     if not usuario:
         return jsonify({'mensagem': 'Usuário não encontrado'}), 404
-    subscricoes = Subscricao.query.filter_by(usuario_id=usuario.id, ativa=True).all()
+    # Buscar todas as subscrições do usuário, ordenadas da mais recente para a mais antiga
+    subscricoes = (
+        Subscricao.query
+        .filter_by(usuario_id=usuario.id)
+        .order_by(Subscricao.data_inicio.desc())
+        .all()
+    )
     subs_data = []
     for sub in subscricoes:
         plano = Plano.query.filter_by(id=sub.plano_id).first()
@@ -45,6 +51,7 @@ def obter_perfil():
             },
             'data_inicio': sub.data_inicio.strftime('%d/%m/%Y'),
             'data_fim': sub.data_fim.strftime('%d/%m/%Y') if sub.data_fim else None,
+            'ativa': sub.ativa,
             'brinquedos': brinquedos_data
         })
     return jsonify({

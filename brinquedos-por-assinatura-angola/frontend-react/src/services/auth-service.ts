@@ -1,4 +1,3 @@
-
 import httpClient from './http-client';
 
 export interface LoginCredentials {
@@ -23,12 +22,30 @@ export interface AuthResponse {
   };
 }
 
+export interface Subscription {
+  id: number;
+  plano: {
+    id: number;
+    nome: string;
+    quantidade_brinquedos: number;
+  };
+  data_inicio: string;
+  data_fim: string | null;
+  ativa: boolean;
+  brinquedos: Array<{
+    id: number;
+    nome: string;
+    data_emprestimo: string;
+    data_devolucao: string | null;
+  }>;
+}
+
 export interface UserProfile {
   id: number;
   nome: string;
   email: string;
   telefone: string;
-  subscriptions?: any[];
+  subscricoes: Subscription[];
 }
 
 const authService = {
