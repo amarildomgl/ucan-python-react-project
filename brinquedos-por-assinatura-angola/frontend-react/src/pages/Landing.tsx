@@ -98,9 +98,9 @@ const Landing = () => {
               <div className="relative">
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent rounded-full opacity-50"></div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full opacity-40"></div>
-                <img 
-                  src="https://images.pexels.com/photos/4546116/pexels-photo-4546116.jpeg?auto=compress&w=600&q=80" 
-                  alt="Crianças negras brincando" 
+                <img
+                  src="/img/menina-com-papel-pintado-no-tapete-de-jogo-no-estudio.jpg"
+                  alt="Menina com papel pintado no tapete de jogo no estúdio"
                   className="rounded-2xl shadow-lg w-full animate-float"
                 />
               </div>

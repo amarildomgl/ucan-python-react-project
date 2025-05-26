@@ -1,0 +1,23 @@
+# Flask instance folder
+instance/
+.webassets-cache
+
+# VS Code settings (opcional)
+.vscode/
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# SQLite database (caso use)
+*.sqlite3
+*.sqlite3-journal
+
+# PyCharm settings (opcional)
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
