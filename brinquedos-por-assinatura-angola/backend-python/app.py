@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from config import Config
 from extensions import db, cors
 
@@ -6,6 +6,7 @@ from extensions import db, cors
 from routes.auth_routes import bp as auth_bp
 from routes.plano_routes import bp as plano_bp
 from routes.brinquedo_routes import bp as brinquedo_bp
+from database.seed import seed
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -17,6 +18,16 @@ cors.init_app(app, resources={r"/*": {"origins": "*"}})
 app.register_blueprint(auth_bp)
 app.register_blueprint(plano_bp)
 app.register_blueprint(brinquedo_bp)
+
+# Servir arquivos estáticos da pasta public
+@app.route('/public/<path:filename>')
+def public_files(filename):
+    return send_from_directory('public', filename)
+
+@app.before_request
+def before_request_func():
+    db.create_all()
+    seed()
 
 if __name__ == '__main__':
     with app.app_context():
